@@ -1,0 +1,50 @@
+name:                happy2dot
+version:             0.1.0.0
+github:              "inventor02/happy2dot"
+license:             ISC
+author:              "George Peppard"
+maintainer:          "gjp1g21@soton.ac.uk"
+copyright:           "2023 George Peppard"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+synopsis:            Convert a Happy info file into Graphviz output that renders the finite state machine
+category:            Parsing
+
+description:         Please see the README on GitHub at <https://github.com/inventor02/happy2dot#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  happy2dot-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - happy2dot
+
+tests:
+  happy2dot-test:
+    defaults: hspec/hspec@main
+    dependencies: happy2dot
+
